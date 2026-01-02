@@ -7,16 +7,20 @@
       "config": {
         "distDir": "dist"
       }
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/contacts/:path*",
-      "destination": "/api/contacts"
     },
     {
-      "source": "/((?!api).*)",
-      "destination": "/frontend/$1"
+      "src": "api/contacts.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/contacts(.*)",
+      "dest": "/api/contacts.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
     }
   ]
 }
