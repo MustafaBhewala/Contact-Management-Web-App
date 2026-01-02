@@ -7,11 +7,16 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
-    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "vercel-build": "cd frontend && npm install && npm run build"
   },
   "keywords": ["mern", "contact-management", "react", "express", "mongodb"],
   "author": "Mustafa Bhewala",
   "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.0.3",
+    "express-validator": "^7.0.1"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }

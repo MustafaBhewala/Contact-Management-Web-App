@@ -9,10 +9,14 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "frontend/$1"
+      "source": "/api/contacts/:path*",
+      "destination": "/api/contacts"
+    },
+    {
+      "source": "/((?!api).*)",
+      "destination": "/frontend/$1"
     }
   ]
 }
