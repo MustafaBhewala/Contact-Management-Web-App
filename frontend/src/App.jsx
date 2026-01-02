@@ -49,7 +49,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen px-6 flex flex-col items-center justify-center pt-8">
+    <div className="min-h-screen px-4 sm:px-6 flex flex-col items-center justify-center pt-4 sm:pt-8">
       {/* Background Video */}
       <video
         autoPlay
@@ -83,33 +83,33 @@ function App() {
       {/* Main Content Container */}
       <div className="w-full max-w-7xl flex flex-col items-center">
         {/* Header */}
-        <div className="w-full mb-24 text-center">
-          <div className="inline-block px-8 py-4" style={{
+        <div className="w-full mb-8 sm:mb-16 text-center">
+          <div className="inline-block px-4 py-3 sm:px-8 sm:py-4" style={{
             backgroundColor: 'rgba(0, 0, 0, 0.9)',
-            border: '4px solid #FFFFFF',
-            boxShadow: '0 0 40px rgba(255, 255, 255, 0.8), 8px 8px 0px 0px rgba(255, 255, 255, 0.3)',
+            border: '3px solid #FFFFFF',
+            boxShadow: '0 0 30px rgba(255, 255, 255, 0.8), 4px 4px 0px 0px rgba(255, 255, 255, 0.3)',
             backdropFilter: 'blur(10px)',
-            transform: 'rotate(2deg)',
+            transform: 'rotate(1deg)',
             transition: 'all 0.3s'
           }} onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'rotate(0deg)';
-            e.currentTarget.style.boxShadow = '0 0 50px rgba(255, 255, 255, 1), 12px 12px 0px 0px rgba(255, 255, 255, 0.5)';
+            e.currentTarget.style.boxShadow = '0 0 50px rgba(255, 255, 255, 1), 8px 8px 0px 0px rgba(255, 255, 255, 0.5)';
           }} 
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'rotate(2deg)';
-              e.currentTarget.style.boxShadow = '0 0 40px rgba(255, 255, 255, 0.8), 8px 8px 0px 0px rgba(255, 255, 255, 0.3)';
+              e.currentTarget.style.transform = 'rotate(1deg)';
+              e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.8), 4px 4px 0px 0px rgba(255, 255, 255, 0.3)';
             }}>
-            <h1 className="neo-heading text-6xl" style={{ color: '#FFFFFF', textShadow: '0 0 20px rgba(255, 255, 255, 0.9)' }}>
+            <h1 className="neo-heading text-3xl sm:text-5xl lg:text-6xl" style={{ color: '#FFFFFF', textShadow: '0 0 20px rgba(255, 255, 255, 0.9)' }}>
               📇 Contact Manager
             </h1>
-            <p className="font-bold text-xl mt-2" style={{ color: '#FFFFFF', textShadow: '0 0 15px rgba(255, 255, 255, 0.8)' }}>
+            <p className="font-bold text-sm sm:text-lg lg:text-xl mt-1 sm:mt-2" style={{ color: '#FFFFFF', textShadow: '0 0 15px rgba(255, 255, 255, 0.8)' }}>
               Neo-Brutalist Edition
             </p>
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" style={{ marginTop: '3cm' }}>
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-16" style={{ marginTop: '1rem' }}>
           {/* Contact Form */}
           <div>
             <ContactForm onContactAdded={handleContactAdded} />
@@ -133,7 +133,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="w-full py-8 mb-16 flex flex-col items-center gap-6" style={{ marginTop: '3cm' }}>
+      <footer className="w-full py-6 sm:py-8 mb-8 sm:mb-16 flex flex-col items-center gap-4 sm:gap-6" style={{ marginTop: '2rem' }}>
         {/* Social Links */}
         <div className="flex flex-wrap gap-4 justify-center">
           <a 

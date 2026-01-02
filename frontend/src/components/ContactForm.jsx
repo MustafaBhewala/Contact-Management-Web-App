@@ -124,16 +124,16 @@ const ContactForm = ({ onContactAdded }) => {
     !errors.message;
 
   return (
-    <div className="neo-card p-10 transition-transform duration-300" style={{transform: 'rotate(1deg)'}} onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(1deg)'}>
-      <h2 className="neo-heading text-4xl mb-8 flex items-center gap-3">
-        <span className="text-5xl">📇</span>
-        Add New Contact
+    <div className="neo-card p-5 sm:p-8 lg:p-10 transition-transform duration-300" style={{transform: 'rotate(1deg)'}} onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(1deg)'}>
+      <h2 className="neo-heading text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
+        <span className="text-3xl sm:text-4xl lg:text-5xl">📇</span>
+        <span>Add New Contact</span>
       </h2>
       
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block font-bold mb-2 text-lg" style={{color: '#FFFFFF'}}>
+          <label htmlFor="name" className="block font-bold mb-2 text-base sm:text-lg" style={{color: '#FFFFFF'}}>
             Name <span style={{color: '#FFFFFF'}}>*</span>
           </label>
           <input

@@ -56,33 +56,33 @@ const ContactList = ({ contacts, onContactDeleted }) => {
   };
 
   return (
-    <div className="neo-card p-10 transition-transform duration-300" style={{transform: 'rotate(-1deg)'}} onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-1deg)'}>
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="neo-heading text-4xl flex items-center gap-3">
-          <span className="text-5xl">📋</span>
-          Contacts ({contacts.length})
+    <div className="neo-card p-5 sm:p-8 lg:p-10 transition-transform duration-300" style={{transform: 'rotate(-1deg)'}} onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-1deg)'}>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+        <h2 className="neo-heading text-2xl sm:text-3xl lg:text-4xl flex items-center gap-2 sm:gap-3">
+          <span className="text-3xl sm:text-4xl lg:text-5xl">📋</span>
+          <span>Contacts ({contacts.length})</span>
         </h2>
         
-        <div className="flex items-center gap-3">
-          <label htmlFor="sort" className="font-bold" style={{color: '#FFFFFF'}}>
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <label htmlFor="sort" className="font-bold text-sm sm:text-base whitespace-nowrap" style={{color: '#FFFFFF'}}>
             Sort:
           </label>
           <select
             id="sort"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="neo-input py-2 px-3 cursor-pointer"
+            className="neo-input py-2 px-3 cursor-pointer text-sm sm:text-base flex-1 sm:flex-initial"
             style={{
               backgroundColor: 'rgba(0, 0, 0, 0.85)',
               color: '#FFFFFF',
-              border: '3px solid #FFFFFF',
+              border: '2px solid #FFFFFF',
               fontWeight: 'bold',
               appearance: 'none',
               backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'right 0.5rem center',
-              backgroundSize: '1.5em 1.5em',
-              paddingRight: '2.5rem'
+              backgroundSize: '1.2em 1.2em',
+              paddingRight: '2rem'
             }}
           >
             <option value="newest" style={{backgroundColor: '#000000', color: '#FFFFFF'}}>Newest First</option>
@@ -99,11 +99,11 @@ const ContactList = ({ contacts, onContactDeleted }) => {
           <p className="text-lg mt-2" style={{color: 'rgba(255, 255, 255, 0.6)'}}>Add your first contact to get started.</p>
         </div>
       ) : (
-        <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+        <div className="space-y-4 sm:space-y-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto pr-1 sm:pr-2 custom-scrollbar">
           {sortedContacts.map((contact, index) => (
             <div
               key={contact._id}
-              className="p-6 transition-all duration-200 hover:-translate-y-1"
+              className="p-4 sm:p-6 transition-all duration-200 hover:-translate-y-1"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.08)',
                 border: '3px solid #FFFFFF',
@@ -113,22 +113,22 @@ const ContactList = ({ contacts, onContactDeleted }) => {
               onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px) scale(1.01)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0) scale(1)'}
             >
-              <div className="flex justify-between items-start gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-2xl font-black" style={{
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
+                <div className="flex-1 w-full">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <h3 className="text-xl sm:text-2xl font-black break-words" style={{
                       color: '#FFFFFF',
                       textShadow: '0 0 15px rgba(255, 255, 255, 0.9)'
                     }}>{contact.name}</h3>
                   </div>
                   
                   <div className="space-y-2">
-                    <p className="flex items-center gap-2 font-bold" style={{color: '#FFFFFF'}}>
-                      <span className="text-xl">📧</span>
-                      {contact.email}
+                    <p className="flex items-center gap-2 font-bold text-sm sm:text-base break-all" style={{color: '#FFFFFF'}}>
+                      <span className="text-lg sm:text-xl">📧</span>
+                      <span className="break-all">{contact.email}</span>
                     </p>
-                    <p className="flex items-center gap-2 font-bold" style={{color: '#FFFFFF'}}>
-                      <span className="text-xl">📱</span>
+                    <p className="flex items-center gap-2 font-bold text-sm sm:text-base" style={{color: '#FFFFFF'}}>
+                      <span className="text-lg sm:text-xl">📱</span>
                       {contact.phone}
                     </p>
                     {contact.message && (
@@ -147,7 +147,7 @@ const ContactList = ({ contacts, onContactDeleted }) => {
                 <button
                   onClick={() => handleDelete(contact._id)}
                   disabled={deletingId === contact._id}
-                  className="neo-btn neo-btn-danger shrink-0"
+                  className="neo-btn neo-btn-danger shrink-0 w-full sm:w-auto text-sm sm:text-base py-2 sm:py-3"
                 >
                   {deletingId === contact._id ? '⚡' : '✖️ REMOVE'}
                 </button>
