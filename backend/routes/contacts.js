@@ -47,6 +47,24 @@ router.post('/', contactValidation, async (req, res) => {
 
     const { name, email, phone, message } = req.body;
 
+    // Check for duplicate email
+    const existingEmail = await Contact.findOne({ email: email.toLowerCase() });
+    if (existingEmail) {
+      return res.status(400).json({
+        success: false,
+        message: 'A contact with this email already exists'
+      });
+    }
+
+    // Check for duplicate phone number
+    const existingPhone = await Contact.findOne({ phone });
+    if (existingPhone) {
+      return res.status(400).json({
+        success: false,
+        message: 'A contact with this phone number already exists'
+      });
+    }
+
     // Create new contact
     const contact = new Contact({
       name,
