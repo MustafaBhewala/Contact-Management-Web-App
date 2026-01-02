@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import API_URL from '../config/api';
 
 const ContactForm = ({ onContactAdded }) => {
   const [formData, setFormData] = useState({
@@ -88,7 +89,7 @@ const ContactForm = ({ onContactAdded }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/contacts', {
+      const response = await fetch(`${API_URL}/contacts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

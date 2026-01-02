@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Toast from './components/Toast';
+import API_URL from './config/api';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -15,7 +16,7 @@ function App() {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/contacts');
+      const response = await fetch(`${API_URL}/contacts`);
       const data = await response.json();
       
       if (response.ok) {

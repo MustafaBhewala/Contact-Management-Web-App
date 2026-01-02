@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import API_URL from '../config/api';
 
 const ContactList = ({ contacts, onContactDeleted }) => {
   const [sortBy, setSortBy] = useState('newest');
@@ -12,7 +13,7 @@ const ContactList = ({ contacts, onContactDeleted }) => {
     setDeletingId(id);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/contacts/${id}`, {
+      const response = await fetch(`${API_URL}/contacts/${id}`, {
         method: 'DELETE',
       });
 
